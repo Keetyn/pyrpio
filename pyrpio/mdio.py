@@ -105,7 +105,6 @@ class MDIO:
         self._cmd(MDIO.C45_FRAME, MDIO.OP_C45_RD, pad, dad)
         # Release data pin
         self.data_gpio.direction = "in"
-        self._ndelay(self._read_delay)
         # Read 2-bit turnaround(gives slave time)
         self._read_bits(2)
         # Read 16-bit value
@@ -126,7 +125,6 @@ class MDIO:
         self._cmd(MDIO.C22_FRAME, MDIO.OP_C22_RD, pad, reg)
         # Release data pin
         self.data_gpio.direction = "in"
-        self._ndelay(self._read_delay)
         # Read 2-bit turnaround (gives slave time)
         self._read_bits(2)
         # Read 16-bit value
